@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div ng-controller="sessionController">
+
+
+    <h2>Welcome {{session_user.name}}</h2>
+      <a href="/logout">logout</a>
+
+    </div>
+    <div ng-controller="bucketController">
+      <h2>{{error}}</h2>
+      <form >
+        Title<input type="text" ng-model="newbucket.title" placeholder="title">
+        Description:<input type="text" ng-model="newbucket.description" placeholder="description">
+        <select ng-model="newbucket.tagger" >
+          <option ng-repeat="user in users|filter: { name: '!' + session_user.name }" value="{{user._id}}">{{user.name}}</option>
+        </select>
+        <input type="submit" value="add to list" ng-click="add()">
+      </form>
+      <h1>thing i want to do </h1>
+      <ul>
+        <li ng-repeat='bucket in buckets'><input type="checkbox" ng-model="bucket.checked" ng-change="check(bucket._id)"> {{bucket.user.name}} | {{bucket.title}} - {{bucket.description}}  {{bucket.createdAt|date: 'MMM dd y'}}</li>
+
+      </ul>
+
+      <h2> list of other users </h2>
+      <table>
+        <tbody>
+          <tr ng-repeat="user in users|filter: { name: '!' + session_user.name} ">
+            <td >
+              <a href="#/dashboard/{{user._id}}/user">{{user.name}}</a>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
