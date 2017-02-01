@@ -12,7 +12,7 @@ module.exports=function(app){
 	})
   app.get('/users',bucket.index);
   app.post('/bucket/add',bucket.add);
-  app.get('/buckets/all',bucket.index2);
+  app.get('/buckets/all',bucket.mylist);
   app.get('/show/:id', bucket.show);
   app.post('/bucket/checked', function(req, res){
     bucket.check(req,res)

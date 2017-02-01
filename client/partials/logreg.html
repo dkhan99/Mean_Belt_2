@@ -5,13 +5,16 @@
     <title></title>
   </head>
   <body>
-    <h1>you are at logreg</h1>
-    <div ng-controller="sessionController">
-    <form ng-submit="logReg()">
-      <input type="text"  ng-model="newUser.name">
-      <input type="submit" value="Log in or register">
-    </form>
-    <h1>{{error}}</h1>
+    <h1>Bucket Lists</h1>
+    
+    <div ng-controller="sessionController as SC">
+      <form ng-submit="SC.logReg()">
+        <label>Name:
+        <input type="text"  ng-model="SC.newUser.name">
+        </label>
+        <input type="submit" value="Log in or register">
+      </form>
+      <h1>{{SC.error}}</h1>
     </div>
   </body>
 </html>

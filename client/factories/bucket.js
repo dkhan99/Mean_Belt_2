@@ -1,6 +1,6 @@
 app.factory('bucketFactory',function($http,$route){
   var factory={};
-  factory.index=function(cb){
+    factory.index=function(cb){
       
       $http.get('/users').success(function(data){
         cb(data);
@@ -17,7 +17,7 @@ app.factory('bucketFactory',function($http,$route){
           cb(data);
         })
       }
-      factory.show=function(id,cb){
+    factory.show=function(id,cb){
       $http.get(`/show/${id}`).success(function(data){
         cb(data);
       })

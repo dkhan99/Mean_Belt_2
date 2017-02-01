@@ -7,4 +7,4 @@ var UserSchema=new mongoose.Schema({
 },
 buckets:[{type:Schema.Types.ObjectId,ref:'Bucket'}]
 })
-mongoose.model('User',UserSchema);
+mongoose.model('User', UserSchema);
